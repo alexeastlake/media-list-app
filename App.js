@@ -1,7 +1,11 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import MovieListScreen from "./MovieListScreen"
+import TVListScreen from "./TVListScreen"
+import GameListScreen from "./GameListScreen"
+import RandomChooserScreen from "./RandomChooserScreen"
+import ProfileScreen from "./ProfileScreen"
 
 const Tab = createBottomTabNavigator();
 
@@ -16,46 +20,6 @@ export default function App() {
         <Tab.Screen name="Profile" component={ProfileScreen} />
       </Tab.Navigator>
     </NavigationContainer>
-  );
-}
-
-function MovieListScreen() {
-  return (
-    <View>
-      <Text>Movie List Screen</Text>
-    </View>
-  );
-}
-
-function TVListScreen() {
-  return (
-    <View>
-      <Text>TV List Screen</Text>
-    </View>
-  );
-}
-
-function GameListScreen() {
-  return (
-    <View>
-      <Text>Game List Screen</Text>
-    </View>
-  );
-}
-
-function RandomChooserScreen() {
-  return (
-    <View>
-      <Text>Random Chooser Screen</Text>
-    </View>
-  );
-}
-
-function ProfileScreen() {
-  return (
-    <View>
-      <Text>Profile Screen</Text>
-    </View>
   );
 }
 
