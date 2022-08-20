@@ -1,12 +1,12 @@
 // Temporary class and storage for developing view
-class ListItem{
-    constructor(type, title, platform, genres, notes) {
-        this.type = type;
-        this.title = title;
-        this.platform = platform;
-        this.genres = genres;
-        this.notes = notes;
-    }
+class ListItem {
+  constructor(type, title, platform, genres, notes) {
+    this.type = type;
+    this.title = title;
+    this.platform = platform;
+    this.genres = genres;
+    this.notes = notes;
+  }
 }
 
 export var items = [new ListItem("movie", "A Movie", "Netflix", ["Action", "Adventure"], "Notes about where I'm up to"),
