@@ -1,9 +1,11 @@
 import { Text, View } from "react-native";
+import ItemList from "./ItemList";
+import  { getTypes } from "./controller";
 
 export default function TVListScreen() {
-  return (
-    <View>
-      <Text>TV List Screen</Text>
-    </View>
-  );
+    return (
+        <View>
+            <ItemList items = {getTypes("tv")}></ItemList>
+        </View>
+    );
 }

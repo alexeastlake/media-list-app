@@ -1,9 +1,11 @@
 import { Text, View } from "react-native";
+import ItemList from "./ItemList";
+import  { getTypes } from "./controller";
 
 export default function GameListScreen() {
-  return (
-    <View>
-      <Text>Game List Screen</Text>
-    </View>
-  );
+    return (
+        <View>
+            <ItemList items = {getTypes("game")}></ItemList>
+        </View>
+    );
 }
