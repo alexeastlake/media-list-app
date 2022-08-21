@@ -1,10 +1,8 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {MaterialCommunityIcons} from '@expo/vector-icons';
-import MovieListScreen from "../../src/screens/main/MovieListScreen"
-import TVListScreen from "../../src/screens/main/TVListScreen"
-import GameListScreen from "../../src/screens/main/GameListScreen"
 import RandomChooserScreen from "../../src/screens/main/RandomChooserScreen"
 import ProfileScreen from "../../src/screens/main/ProfileScreen"
+import ListNavigator from "./ListNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -26,11 +24,11 @@ export default function BottomTabs() {
         }
       }
     })}>
-      <Tab.Screen name="Movies" component={MovieListScreen} />
-      <Tab.Screen name="TV" component={TVListScreen} />
-      <Tab.Screen name="Games" component={GameListScreen} />
-      <Tab.Screen name="Random" component={RandomChooserScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name = "Movies" component = {ListNavigator} initialParams = {{type: "movie"}}/>
+      <Tab.Screen name = "TV" component = {ListNavigator} initialParams = {{type: "tv"}}/>
+      <Tab.Screen name = "Games" component = {ListNavigator} initialParams = {{type: "game"}}/>
+      <Tab.Screen name = "Random" component = {RandomChooserScreen}/>
+      <Tab.Screen name = "Profile" component = {ProfileScreen}/>
     </Tab.Navigator>
   );
 }
