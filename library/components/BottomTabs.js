@@ -1,10 +1,10 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {MaterialCommunityIcons} from '@expo/vector-icons';
-import MovieListScreen from "../../screens/MovieListScreen"
-import TVListScreen from "../../screens/TVListScreen"
-import GameListScreen from "./GameListScreen"
-import RandomChooserScreen from "../../screens/RandomChooserScreen"
-import ProfileScreen from "../../screens/ProfileScreen"
+import MovieListScreen from "../../src/screens/main/MovieListScreen"
+import TVListScreen from "../../src/screens/main/TVListScreen"
+import GameListScreen from "../../src/screens/main/GameListScreen"
+import RandomChooserScreen from "../../src/screens/main/RandomChooserScreen"
+import ProfileScreen from "../../src/screens/main/ProfileScreen"
 
 const Tab = createBottomTabNavigator();
 
