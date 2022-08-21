@@ -1,6 +1,5 @@
-import {StyleSheet, Text, View} from "react-native";
 import {NavigationContainer} from "@react-navigation/native";
-import BottomTabs from "./BottomTabs";
+import BottomTabs from "./src/library/components/BottomTabs";
 
 export default function App() {
   return (
