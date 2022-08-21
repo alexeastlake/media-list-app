@@ -1,4 +1,4 @@
-import { Text, View, FlatList, StyleSheet } from "react-native";
+import {Text, View, FlatList, StyleSheet} from "react-native";
 
 export default function ItemList(items) {
   return (
