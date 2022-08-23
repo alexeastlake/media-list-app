@@ -12,11 +12,20 @@ export default StyleSheet.create({
   },
 
   listItemTitle: {
-    fontSize: 22.5,
+    fontSize: 22,
     fontWeight: "bold",
   },
 
   listItemText: {
-    fontSize: 17.5,
+    fontSize: 17,
+  },
+
+  listHeaderButtons: {
+    flexDirection: "row",
+  },
+
+  listHeaderButton: {
+    paddingHorizontal: 15,
+    fontSize: 27,
   },
 });

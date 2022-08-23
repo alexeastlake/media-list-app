@@ -9,6 +9,7 @@ const Tab = createBottomTabNavigator();
 export default function BottomTabs() {
   return (
     <Tab.Navigator initialRouteName = {"Profile"} screenOptions = {({route}) => ({
+      headerShown: false,
       tabBarIcon: ({focused, color, size}) => {
         switch (route.name) {
           case "Movies":
