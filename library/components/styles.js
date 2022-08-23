@@ -20,11 +20,11 @@ export default StyleSheet.create({
     fontSize: 17,
   },
 
-  listHeaderButtons: {
+  headerButtons: {
     flexDirection: "row",
   },
 
-  listHeaderButton: {
+  headerButton: {
     paddingHorizontal: 15,
     fontSize: 27,
   },
