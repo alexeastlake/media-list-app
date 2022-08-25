@@ -48,4 +48,18 @@ export default StyleSheet.create({
   itemDetailNotes: {
     borderTopWidth: 1,
   },
+
+  itemEditText: {
+    flex: 1,
+    fontSize: 22,
+    fontWeight: "bold",
+  },
+
+  itemEditInput: {
+    flex: 1,
+    borderWidth: 1,
+    borderRadius: 2.5,
+    paddingHorizontal: 5,
+    marginVertical: 15,
+  },
 });
