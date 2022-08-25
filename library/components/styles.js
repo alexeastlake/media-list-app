@@ -28,4 +28,24 @@ export default StyleSheet.create({
     paddingHorizontal: 15,
     fontSize: 27,
   },
+
+  itemDetail: {
+    backgroundColor: '#FFFFFF',
+    flex: 1,
+    padding: 30,
+  },
+
+  itemDetailTitle: {
+    fontSize: 32,
+    fontWeight: "bold",
+  },
+
+  itemDetailText: {
+    fontSize: 22,
+    paddingVertical: 15,
+  },
+
+  itemDetailNotes: {
+    borderTopWidth: 1,
+  },
 });
