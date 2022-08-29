@@ -1,10 +1,11 @@
 import React from "react";
 import {useRoute} from "@react-navigation/native";
+import  {getItem} from "../../../controller";
 import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button} from "react-native";
 import styles from '../../../library/components/styles';
 
 export default function ItemEditScreen({route}) {
-  let item = route.params.item;
+  let item = getItem(route.params.item.id);
 
   const [title, onChangeTitle] = React.useState(item.title);
   const [platform, onChangePlatform] = React.useState(item.platform);

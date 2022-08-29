@@ -1,8 +1,9 @@
 import {ScrollView, Text, View} from "react-native";
+import  {getItem} from "../../../controller";
 import styles from '../../../library/components/styles';
 
 export default function ItemViewScreen({route}) {
-  let item = route.params.item;
+  let item = getItem(route.params.item.id);
   
   return (
     <View style = {styles.itemDetail}>
