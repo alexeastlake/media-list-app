@@ -1,5 +1,5 @@
 // Temporary class and storage for developing view
-class ListItem {
+export class ListItem {
   constructor(id, type, title, platform, genres, notes) {
     this.id = id,
     this.type = type;

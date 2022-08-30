@@ -1,10 +1,10 @@
 import React from "react";
-import {useRoute} from "@react-navigation/native";
-import  {getItem} from "../../../controller";
+import {useRoute, useNavigation} from "@react-navigation/native";
+import  {getItem, saveChange} from "../../../controller";
 import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button} from "react-native";
 import styles from '../../../library/components/styles';
 
-export default function ItemEditScreen({route}) {
+export default function ItemEditScreen({navigation, route}) {
   let item = getItem(route.params.item.id);
 
   const [title, onChangeTitle] = React.useState(item.title);
@@ -23,15 +23,13 @@ export default function ItemEditScreen({route}) {
           <TextInput style = {styles.itemEditInput} onChangeText = {onChangeGenres} defaultValue = {genres} multiline = {true}/>
           <Text style = {styles.itemEditText}>Notes:</Text>
           <TextInput style = {styles.itemEditInput} onChangeText = {onChangeNotes} defaultValue = {notes} multiline = {true}/>
-          <Button title = "Save" onPress = {() => saveEdit(title, platform, genres, notes)}/>
+          <Button title = "Save" onPress = {() => saveEdit(item.id, title, platform, genres, notes, navigation)}/>
         </ScrollView>
     </KeyboardAvoidingView>
   );
 }
 
-function saveEdit(title, platform, genres, notes) {
-  console.log(title);
-  console.log(platform);
-  console.log(genres);
-  console.log(notes);
+function saveEdit(id, title, platform, genres, notes, navigation) {
+  saveChange(id, title, platform, genres, notes);
+  navigation.goBack();
 }
