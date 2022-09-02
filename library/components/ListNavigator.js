@@ -16,7 +16,7 @@ export default function ListNavigator({route}) {
         headerTitle: "",
         headerRight: ListHeaderButtons,
       }}/>
-      <Stack.Screen name = "Add" component = {ItemAddScreen}/>
+      <Stack.Screen name = "Add" component = {ItemAddScreen} initialParams = {route.params}/>
       <Stack.Screen name = "Filter" component = {ItemFilterScreen}/>
       <Stack.Screen name = "Details" component = {ItemDetailScreen} options = {{
         headerRight: ItemHeaderButtons,

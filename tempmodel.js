@@ -10,6 +10,8 @@ export class ListItem {
   }
 }
 
+export var currentId = 7;
+
 export var items = [new ListItem(1, "movie", "A Movie", "Netflix", ["Action", "Adventure"], "Notes about where I'm up to"),
                     new ListItem(2, "movie", "A Movie with a Longer Title", "Neon", ["Sci-fi", "Adventure"], "Notes about where I'm up to"),
                     new ListItem(3, "tv", "A TV Show", "TVNZ", ["Horror", "Adventure"], "Notes about where I'm up to"),

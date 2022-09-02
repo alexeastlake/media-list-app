@@ -37,6 +37,19 @@ export function saveChange(id, title, platform, genres, notes) {
   item.notes = notes;
 }
 
+export function addItem(type, title, platform, genres, notes) {
+  let genresArray = genres.split(",");
+
+  for (let i = 0; i < genresArray.length; i++) {
+    genresArray[i].trim();
+  }
+  
+  let item = new model.ListItem(model.currentId, type, title, platform, genresArray, notes);
+  model.currentId++;
+
+  model.items.push(item);
+}
+
 function copyItem(item) {
   return new model.ListItem(item.id, item.type, item.title, item.platform, [...item.genres], item.notes);
 }
