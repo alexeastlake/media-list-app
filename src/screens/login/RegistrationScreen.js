@@ -1,11 +1,16 @@
-import {useState} from "react";
-import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button} from "react-native";
+import {useDeferredValue, useState} from "react";
+import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button, Alert} from "react-native";
 import styles from '../../../library/components/styles';
 
-export default function RegistrationScreen() {
+import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
+import {getApp} from "firebase/app";
+
+export default function RegistrationScreen({navigation}) {
   const [email, onChangeEmail] = useState("");
   const [password, onChangePassword] = useState("");
   const [confirmPassword, onChangeConfirmPassword] = useState("");
+
+  const auth = getAuth(getApp());
 
   return (
     <KeyboardAvoidingView style = {styles.itemDetail} keyboardVerticalOffset = {-300} behavior = "padding">
@@ -17,12 +22,21 @@ export default function RegistrationScreen() {
           <TextInput style = {styles.itemEditInput} onChangeText = {onChangePassword} multiline = {true}/>
           <Text style = {styles.itemEditText}>Confirm Password:</Text>
           <TextInput style = {styles.itemEditInput} onChangeText = {onChangeConfirmPassword} multiline = {true}/>
-          <Button title = "Register" onPress = {() => register()}/>
+          <Button title = "Register" onPress = {() => register(email, password, confirmPassword, auth, navigation)}/>
         </ScrollView>
     </KeyboardAvoidingView>
   );
 }
 
-function register() {
-  console.log(register);
+function register(email, password, confirmPassword, auth, navigation) {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((response) => {
+      const user = response.user;
+      console.log(user);
+
+      //navigation.navigate("App", {user: data});
+    })
+    .catch(error => {
+      console.log(error);
+    })
 }

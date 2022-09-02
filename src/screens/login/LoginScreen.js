@@ -15,7 +15,7 @@ export default function LoginScreen({navigation}) {
           <Text style = {styles.itemEditText}>Password:</Text>
           <TextInput style = {styles.itemEditInput} onChangeText = {onChangePassword} multiline = {true}/>
           <Button title = "Login" onPress = {() => login()}/>
-          <Button title = "Register" onPress = {() => navigation.navigate("Register")}/>
+          <Text style = {styles.itemEditText} onPress = {() => navigation.navigate("Register")}>Register</Text>
         </ScrollView>
     </KeyboardAvoidingView>
   );
