@@ -29,18 +29,18 @@ export default StyleSheet.create({
     fontSize: 27,
   },
 
-  itemDetail: {
+  screenContentWrapper: {
     backgroundColor: '#FFFFFF',
     flex: 1,
     padding: 30,
   },
 
-  itemDetailTitle: {
+  screenContentTitle: {
     fontSize: 32,
     fontWeight: "bold",
   },
 
-  itemDetailText: {
+  screenContentText: {
     fontSize: 22,
     paddingVertical: 15,
   },
@@ -49,17 +49,24 @@ export default StyleSheet.create({
     borderTopWidth: 1,
   },
 
-  itemEditText: {
+  textInputTitle: {
     flex: 1,
     fontSize: 22,
     fontWeight: "bold",
   },
 
-  itemEditInput: {
+  textInput: {
     flex: 1,
     borderWidth: 1,
     borderRadius: 2.5,
     paddingHorizontal: 5,
+    marginVertical: 15,
+  },
+
+  registerLink: {
+    fontSize: 17,
+    color: "#0000ff",
+    textAlign: 'center',
     marginVertical: 15,
   },
 });

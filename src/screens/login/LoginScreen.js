@@ -1,5 +1,7 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
 import {useState} from "react";
-import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button} from "react-native";
+import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button, Alert} from "react-native";
+import { loginUser } from "../../../controller";
 import styles from '../../../library/components/styles';
 
 export default function LoginScreen({navigation}) {
@@ -7,20 +9,19 @@ export default function LoginScreen({navigation}) {
   const [password, onChangePassword] = useState("");
 
   return (
-    <KeyboardAvoidingView style = {styles.itemDetail} keyboardVerticalOffset = {-300} behavior = "padding">
+    <KeyboardAvoidingView style = {styles.screenContentWrapper} keyboardVerticalOffset = {-300} behavior = "padding">
         <ScrollView>
-          <Text style = {styles.itemEditText}>Login</Text>
-          <Text style = {styles.itemEditText}>Email:</Text>
-          <TextInput style = {styles.itemEditInput} onChangeText = {onChangeEmail} multiline = {true}/>
-          <Text style = {styles.itemEditText}>Password:</Text>
-          <TextInput style = {styles.itemEditInput} onChangeText = {onChangePassword} multiline = {true}/>
-          <Button title = "Login" onPress = {() => login()}/>
-          <Text style = {styles.itemEditText} onPress = {() => navigation.navigate("Register")}>Register</Text>
+          <Text style = {styles.textInputTitle}>Email:</Text>
+          <TextInput style = {styles.textInput} onChangeText = {onChangeEmail}/>
+          <Text style = {styles.textInputTitle}>Password:</Text>
+          <TextInput style = {styles.textInput} onChangeText = {onChangePassword} secureTextEntry = {true}/>
+          <Button title = "Login" onPress = {() => login(email, password, navigation)}/>
+          <Text style = {styles.registerLink} onPress = {() => navigation.navigate("Register")}>Register</Text>
         </ScrollView>
     </KeyboardAvoidingView>
   );
 }
 
-function login() {
-  console.log(login);
+export function login(email, password, navigation) {
+  loginUser(email, password);
 }

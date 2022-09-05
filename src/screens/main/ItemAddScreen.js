@@ -13,16 +13,16 @@ export default function ItemAddScreen({navigation, route}) {
   const [notes, onChangeNotes] = React.useState("");
 
   return (
-    <KeyboardAvoidingView style = {styles.itemDetail} keyboardVerticalOffset = {-300} behavior = "padding">
+    <KeyboardAvoidingView style = {styles.screenContentWrapper} keyboardVerticalOffset = {-300} behavior = "padding">
         <ScrollView>
-          <Text style = {styles.itemEditText}>Title:</Text>
-          <TextInput style = {styles.itemEditInput} onChangeText = {onChangeTitle} multiline = {true}/>
-          <Text style = {styles.itemEditText}>Platform/Service:</Text>
-          <TextInput style = {styles.itemEditInput} onChangeText = {onChangePlatform} multiline = {true}/>
-          <Text style = {styles.itemEditText}>Genres {"(Separated by ,)"}:</Text>
-          <TextInput style = {styles.itemEditInput} onChangeText = {onChangeGenres} multiline = {true}/>
-          <Text style = {styles.itemEditText}>Notes:</Text>
-          <TextInput style = {styles.itemEditInput} onChangeText = {onChangeNotes} multiline = {true}/>
+          <Text style = {styles.textInputTitle}>Title:</Text>
+          <TextInput style = {styles.textInput} onChangeText = {onChangeTitle} multiline = {true}/>
+          <Text style = {styles.textInputTitle}>Platform/Service:</Text>
+          <TextInput style = {styles.textInput} onChangeText = {onChangePlatform} multiline = {true}/>
+          <Text style = {styles.textInputTitle}>Genres {"(Separated by ,)"}:</Text>
+          <TextInput style = {styles.textInput} onChangeText = {onChangeGenres} multiline = {true}/>
+          <Text style = {styles.textInputTitle}>Notes:</Text>
+          <TextInput style = {styles.textInput} onChangeText = {onChangeNotes} multiline = {true}/>
           <Button title = "Save" onPress = {() => saveItem(type, title, platform, genres, notes, navigation)}/>
         </ScrollView>
     </KeyboardAvoidingView>

@@ -14,12 +14,12 @@ export default function ItemDetailScreen({route}) {
   );
 
   return (
-    <View style = {styles.itemDetail}>
+    <View style = {styles.screenContentWrapper}>
       <ScrollView>
-        <Text style = {styles.itemDetailTitle}>{item.title}</Text>
-        <Text style = {styles.itemDetailText}>{item.platform}</Text>
-        <Text style = {styles.itemDetailText}>{item.genres.join(", ")}</Text>
-        <Text style = {[styles.itemDetailText, styles.itemDetailNotes]}>{item.notes}</Text>
+        <Text style = {styles.screenContentTitle}>{item.title}</Text>
+        <Text style = {styles.screenContentText}>{item.platform}</Text>
+        <Text style = {styles.screenContentText}>{item.genres.join(", ")}</Text>
+        <Text style = {[styles.screenContentText, styles.itemDetailNotes]}>{item.notes}</Text>
       </ScrollView>
     </View>
   );

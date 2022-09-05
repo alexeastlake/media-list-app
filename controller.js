@@ -1,4 +1,37 @@
+import {getApp} from 'firebase/app';
+import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from 'firebase/auth';
+import {getFirestore, doc, setDoc, collection} from 'firebase/firestore';
+import {Alert} from 'react-native';
 import * as model from './tempmodel';
+
+export function registerUser(email, password, confirmPassword) {
+  const auth = getAuth(getApp());
+  const db = getFirestore(getApp());
+
+  return createUserWithEmailAndPassword(auth, email, password)
+    .then((response) => {
+      const user = response.user;
+
+      return user.uid;
+    })
+    .catch(error => {
+      Alert.alert("Error", error.message);
+    });
+}
+
+export function loginUser(email, password) {
+  const auth = getAuth(getApp());
+
+  return signInWithEmailAndPassword(auth, email, password)
+    .then((response) => {
+      const user = response.user;
+
+      return user.uid;
+    })
+    .catch(error => {
+      Alert.alert("Error", error.message);
+  });
+}
 
 export function getTypes(type) {
   let items = [];
