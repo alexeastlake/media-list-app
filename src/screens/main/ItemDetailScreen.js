@@ -1,7 +1,7 @@
 import {ScrollView, Text, View} from "react-native";
 import React, {useState} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
-import  {getItem, getCopiedItem} from "../../../controller";
+import  {getItem, getCopiedItem} from "../../utility/controller";
 import styles from '../../../library/components/styles';
 
 export default function ItemDetailScreen({route}) {

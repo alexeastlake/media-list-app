@@ -9,8 +9,10 @@ import { firebaseConfig } from "./src/firebase/firebase-config";
 import LoginScreen from "./src/screens/login/LoginScreen";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RegistrationScreen from "./src/screens/login/RegistrationScreen";
+import { UserContext } from "./src/utility/UserContext";
 
 const Stack = createNativeStackNavigator();
+
 const app = initializeApp(firebaseConfig);
 const auth = initializeAuth(app, {persistence: getReactNativePersistence(AsyncStorage)});
 
@@ -22,17 +24,19 @@ export default function App() {
   });
   
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        {user ? (
-          <Stack.Screen name = "App" component = {BottomTabs} options = {{headerShown: false}}/>
-        ) : (
-          <>
-            <Stack.Screen name = "Login" component = {LoginScreen}/>
-            <Stack.Screen name = "Register" component = {RegistrationScreen}/>
-          </>
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <UserContext.Provider value = {user}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          {user ? (
+            <Stack.Screen name = "App" component = {BottomTabs} options = {{headerShown: false}}/>
+          ) : (
+            <>
+              <Stack.Screen name = "Login" component = {LoginScreen}/>
+              <Stack.Screen name = "Register" component = {RegistrationScreen}/>
+            </>
+          )}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </UserContext.Provider>
   );
 }

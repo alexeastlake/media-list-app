@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import {useState} from "react";
 import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button, Alert} from "react-native";
-import { loginUser } from "../../../controller";
+import { loginUser } from "../../utility/controller";
 import styles from '../../../library/components/styles';
 
 export default function LoginScreen({navigation}) {

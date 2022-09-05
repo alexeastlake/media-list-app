@@ -1,6 +1,6 @@
 import React from "react";
 import {useRoute, useNavigation} from "@react-navigation/native";
-import  {getItem, saveChange} from "../../../controller";
+import  {getItem, saveChange} from "../../utility/controller";
 import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button} from "react-native";
 import styles from '../../../library/components/styles';
 

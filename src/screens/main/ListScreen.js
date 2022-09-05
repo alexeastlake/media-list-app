@@ -1,7 +1,7 @@
 import {View, FlatList} from "react-native";
 import React, {useState} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
-import  {getTypes} from "../../../controller";
+import  {getTypes} from "../../utility/controller";
 import ListItem from "../../../library/components/ListItem";
 
 export default function ListScreen({route}) {

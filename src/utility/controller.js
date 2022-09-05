@@ -1,8 +1,8 @@
-import {getApp} from 'firebase/app';
-import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from 'firebase/auth';
-import {getFirestore, doc, setDoc, collection} from 'firebase/firestore';
-import {Alert} from 'react-native';
-import * as model from './tempmodel';
+import {getApp} from "firebase/app";
+import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from "firebase/auth";
+import {getFirestore, doc, setDoc, collection} from "firebase/firestore";
+import {Alert} from "react-native";
+import * as model from "../../tempmodel";
 
 export function registerUser(email, password, confirmPassword) {
   const auth = getAuth(getApp());

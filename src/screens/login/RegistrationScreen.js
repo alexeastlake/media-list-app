@@ -2,7 +2,7 @@ import {useDeferredValue, useState} from "react";
 import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button, Alert} from "react-native";
 import styles from '../../../library/components/styles';
 
-import { registerUser } from "../../../controller";
+import { registerUser } from "../../utility/controller";
 import { login } from "./LoginScreen";
 
 export default function RegistrationScreen({navigation}) {

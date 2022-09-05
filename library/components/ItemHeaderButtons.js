@@ -1,6 +1,6 @@
 import {Alert, TouchableOpacity, View} from "react-native";
 import {MaterialCommunityIcons} from '@expo/vector-icons';
-import  {deleteItem} from "../../controller";
+import  {deleteItem} from "../../src/utility/controller";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import styles from './styles.js';
 
