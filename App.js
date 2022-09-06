@@ -17,10 +17,12 @@ const app = initializeApp(firebaseConfig);
 const auth = initializeAuth(app, {persistence: getReactNativePersistence(AsyncStorage)});
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(false);
   
   auth.onAuthStateChanged(() => {
-    setUser(auth.currentUser.uid);
+    try {
+      setUser(auth.currentUser.uid);
+    } catch {}
   });
   
   return (
