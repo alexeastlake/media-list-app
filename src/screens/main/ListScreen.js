@@ -1,4 +1,4 @@
-import {View, FlatList} from "react-native";
+import {View, FlatList, Text} from "react-native";
 import React, {useContext, useState} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 import  {getTypes} from "../../utility/controller";
@@ -12,15 +12,21 @@ export default function ListScreen({route}) {
 
   useFocusEffect(
     React.useCallback(() => {
-      getTypes(user, route.params.type).then((result) => {console.log(result); setItems(result)});
+      getTypes(user, route.params.type).then((result) => {setItems(result)});
     }, [])
   );
   
-  return (
-    <View>
-      <FlatList data = {items} renderItem = {renderItem}/>
-    </View>
-  );
+  if (items) {
+    return (
+      <View>
+        <FlatList data = {items} renderItem = {renderItem}/>
+      </View>
+    );
+  } else {
+    return <Text>Loading...</Text>
+  }
+
+  
 }
 
 function renderItem({item}) {

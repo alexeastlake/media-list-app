@@ -1,6 +1,6 @@
 import {getApp} from "firebase/app";
 import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import {getFirestore, doc, setDoc, collection, firestore, addDoc, query, where, getDocs} from "firebase/firestore";
+import {getFirestore, doc, setDoc, collection, firestore, addDoc, query, where, getDocs, getDoc} from "firebase/firestore";
 import {Alert} from "react-native";
 import {modelItems, currentId} from "../../tempmodel";
 import { ListItem } from "./ListItem";
@@ -42,7 +42,7 @@ export async function getTypes(uid, type) {
 
   let items = [];
   
-  querySnapshot.forEach((doc) => {items.push(doc.data())});
+  querySnapshot.forEach((doc) => {items.push(doc.data()); items[items.length - 1].id = doc.id});
 
   return items;
 }
@@ -57,14 +57,15 @@ export function getCopiedItem(id) {
   }
 }
 
-export function getItem(id) {
+export async function getItem(uid, id) {
   const db = getFirestore(getApp());
 
-  for (let i = 0; i < modelItems.length; i++) {
-    if (modelItems[i].id === id) {
-      return modelItems[i];
-    }
-  }
+  const docSnapshot = await getDoc(doc(db, "users", uid, "items", id));
+
+  let item = docSnapshot.data();
+  item.id = docSnapshot.id;
+
+  return item;
 }
 
 export function saveChange(id, title, platform, genres, notes) {
