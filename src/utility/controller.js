@@ -1,6 +1,6 @@
 import {getApp} from "firebase/app";
 import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import {getFirestore, doc, setDoc, collection, firestore, addDoc, query, where, getDocs, getDoc, updateDoc} from "firebase/firestore";
+import {getFirestore, doc, setDoc, collection, firestore, addDoc, query, where, getDocs, getDoc, updateDoc, deleteDoc} from "firebase/firestore";
 import {Alert} from "react-native";
 import {modelItems, currentId} from "../../tempmodel";
 import { ListItem as Item } from "./Item";
@@ -100,12 +100,8 @@ function copyItem(item) {
   return new Item(item.id, item.type, item.title, item.platform, [...item.genres], item.notes);
 }
 
-export function deleteItem(id) {
+export function deleteItem(uid, id) {
   const db = getFirestore(getApp());
 
-  for (let i = 0; i < modelItems.length; i++) {
-    if (modelItems[i].id === id) {
-      modelItems.splice(i, 1);
-    }
-  }
+  deleteDoc(doc(db, "users", uid, "items", id)).catch(error => {Alert.alert("Error", error.message);});
 }
