@@ -29,7 +29,7 @@ export default function ItemDetailScreen({route}) {
     );
   } else {
     return (
-      <Text>Loading...</Text>
+      <Text style = {styles.loadingText}>Loading...</Text>
     );
   }
 }

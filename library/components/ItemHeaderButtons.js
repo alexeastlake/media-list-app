@@ -13,7 +13,7 @@ export default function ListHeaderButtons() {
 
 
   return (
-    <View style = {styles.headerButtons}>
+    <View style = {styles.headerButtonWrapper}>
       <TouchableOpacity onPress = {() => navigation.navigate("Edit", route.params)}>
         <MaterialCommunityIcons style = {styles.headerButton} name = "pencil" color = "black"/>
       </TouchableOpacity>

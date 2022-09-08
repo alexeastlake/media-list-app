@@ -20,7 +20,7 @@ export default StyleSheet.create({
     fontSize: 17,
   },
 
-  headerButtons: {
+  headerButtonWrapper: {
     flexDirection: "row",
   },
 
@@ -66,7 +66,13 @@ export default StyleSheet.create({
   registerLink: {
     fontSize: 17,
     color: "#0000ff",
-    textAlign: 'center',
+    textAlign: "center",
     marginVertical: 15,
+  },
+
+  loadingText: {
+    fontSize: 17,
+    textAlign: "center",
+    padding: 30,
   },
 });

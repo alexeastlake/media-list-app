@@ -45,7 +45,7 @@ export default function ItemEditScreen({navigation, route}) {
     );
   } else {
     return(
-      <Text>Loading...</Text>
+      <Text style = {styles.loadingText}>Loading...</Text>
     );
   }
 }

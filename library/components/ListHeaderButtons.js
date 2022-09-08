@@ -7,7 +7,7 @@ export default function ListHeaderButtons() {
   let navigation = useNavigation();
 
   return (
-    <View style = {styles.headerButtons}>
+    <View style = {styles.headerButtonWrapper}>
       <TouchableOpacity onPress = {() => navigation.navigate("Filter")}>
         <MaterialCommunityIcons style = {styles.headerButton} name = "filter-variant" color = "black"/>
       </TouchableOpacity>

@@ -4,6 +4,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import  {getTypes} from "../../utility/controller";
 import ListItem from "../../../library/components/ListItem";
 import { UserContext } from "../../utility/UserContext";
+import styles from "../../../library/components/styles";
 
 export default function ListScreen({route}) {
   let user = useContext(UserContext);
@@ -23,7 +24,7 @@ export default function ListScreen({route}) {
       </View>
     );
   } else {
-    return <Text>Loading...</Text>
+    return <Text style = {styles.loadingText}>Loading...</Text>
   }
 
   
