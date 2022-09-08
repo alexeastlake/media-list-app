@@ -38,11 +38,12 @@ export default StyleSheet.create({
   screenContentTitle: {
     fontSize: 32,
     fontWeight: "bold",
+    paddingVertical: 7.5,
   },
 
   screenContentText: {
     fontSize: 22,
-    paddingVertical: 15,
+    paddingVertical: 7.5,
   },
 
   itemDetailNotes: {
@@ -74,5 +75,9 @@ export default StyleSheet.create({
     fontSize: 17,
     textAlign: "center",
     padding: 30,
+  },
+
+  randomButton: {
+    marginVertical: 30,
   },
 });

@@ -91,3 +91,16 @@ export function deleteItem(uid, id) {
 
   deleteDoc(doc(db, "users", uid, "items", id)).catch(error => {Alert.alert("Error", error.message);});
 }
+
+export async function getRandomItem(uid) {
+  const db = getFirestore(getApp());
+
+  let colRef = collection(db, "users", uid, "items");
+  const querySnapshot = await getDocs(colRef);
+
+  let items = [];
+  
+  querySnapshot.forEach((doc) => {items.push(doc.data()); items[items.length - 1].id = doc.id});
+
+  return items[Math.floor(Math.random() * items.length)];
+}
