@@ -9,7 +9,6 @@ const Tab = createBottomTabNavigator();
 export default function BottomTabs() {
   return (
     <Tab.Navigator initialRouteName = {"Profile"} screenOptions = {({route}) => ({
-      headerShown: false,
       tabBarIcon: ({focused, color, size}) => {
         switch (route.name) {
           case "Movies":
@@ -25,11 +24,11 @@ export default function BottomTabs() {
         }
       }
     })}>
-      <Tab.Screen name = "Movies" component = {ListNavigator} initialParams = {{type: "movie"}}/>
-      <Tab.Screen name = "TV" component = {ListNavigator} initialParams = {{type: "tv"}}/>
-      <Tab.Screen name = "Games" component = {ListNavigator} initialParams = {{type: "game"}}/>
-      <Tab.Screen name = "Random" component = {RandomChooserScreen}/>
-      <Tab.Screen name = "Profile" component = {ProfileScreen}/>
+      <Tab.Screen name = "Movies" component = {ListNavigator} initialParams = {{type: "movie"}} options = {{headerShown: false}}/>
+      <Tab.Screen name = "TV" component = {ListNavigator} initialParams = {{type: "tv"}} options = {{headerShown: false}}/>
+      <Tab.Screen name = "Games" component = {ListNavigator} initialParams = {{type: "game"}} options = {{headerShown: false}}/>
+      <Tab.Screen name = "Random" component = {RandomChooserScreen} options = {{headerTitle: ""}}/>
+      <Tab.Screen name = "Profile" component = {ProfileScreen} options = {{headerTitle: ""}}/>
     </Tab.Navigator>
   );
 }

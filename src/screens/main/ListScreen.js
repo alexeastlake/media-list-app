@@ -18,16 +18,20 @@ export default function ListScreen({route}) {
   );
   
   if (items) {
-    return (
-      <View>
-        <FlatList data = {items} renderItem = {renderItem}/>
-      </View>
-    );
+    if (items.length === 0) {
+      return (
+        <Text style = {styles.loadingText}>There are no items here</Text>
+      );
+    } else {
+      return (
+        <View>
+          <FlatList data = {items} renderItem = {renderItem}/>
+        </View>
+      );
+    }
   } else {
-    return <Text style = {styles.loadingText}>Loading...</Text>
+    return (<Text style = {styles.loadingText}>Loading...</Text>);
   }
-
-  
 }
 
 function renderItem({item}) {
