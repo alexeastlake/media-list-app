@@ -1,9 +1,9 @@
 import {getApp} from "firebase/app";
 import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import {getFirestore, doc, setDoc, collection, firestore, addDoc, query, where, getDocs, getDoc} from "firebase/firestore";
+import {getFirestore, doc, setDoc, collection, firestore, addDoc, query, where, getDocs, getDoc, updateDoc} from "firebase/firestore";
 import {Alert} from "react-native";
 import {modelItems, currentId} from "../../tempmodel";
-import { ListItem } from "./ListItem";
+import { ListItem as Item } from "./Item";
 
 export function registerUser(email, password, confirmPassword) {
   const auth = getAuth(getApp());
@@ -68,14 +68,18 @@ export async function getItem(uid, id) {
   return item;
 }
 
-export function saveChange(id, title, platform, genres, notes) {
+export function saveChange(uid, id, type, title, platform, genres, notes) {
   const db = getFirestore(getApp());
-  let item = getItem(id);
+
+  let genresArray = genres.split(",");
+
+  for (let i = 0; i < genresArray.length; i++) {
+    genresArray[i].trim();
+  }
+
+  let item = new Item(type, title, platform, genresArray, notes);
   
-  item.title = title;
-  item.platform = platform;
-  item.genres = genres.split(", ");
-  item.notes = notes;
+  updateDoc(doc(db, "users", uid, "items", id), Object.assign({}, item)).catch(error => {Alert.alert("Error", error.message);});
 }
 
 export function addItem(uid, type, title, platform, genres, notes) {
@@ -87,13 +91,13 @@ export function addItem(uid, type, title, platform, genres, notes) {
     genresArray[i].trim();
   }
   
-  let item = new ListItem(type, title, platform, genresArray, notes);
+  let item = new Item(type, title, platform, genresArray, notes);
 
   addDoc(collection(db, "users", uid, "items"), Object.assign({}, item)).catch(error => {Alert.alert("Error", error.message);});
 }
 
 function copyItem(item) {
-  return new ListItem(item.id, item.type, item.title, item.platform, [...item.genres], item.notes);
+  return new Item(item.id, item.type, item.title, item.platform, [...item.genres], item.notes);
 }
 
 export function deleteItem(id) {

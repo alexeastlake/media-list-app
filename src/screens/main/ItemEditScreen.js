@@ -39,7 +39,7 @@ export default function ItemEditScreen({navigation, route}) {
             <TextInput style = {styles.textInput} onChangeText = {onChangeGenres} defaultValue = {genres} multiline = {true}/>
             <Text style = {styles.textInputTitle}>Notes:</Text>
             <TextInput style = {styles.textInput} onChangeText = {onChangeNotes} defaultValue = {notes} multiline = {true}/>
-            <Button title = "Save" onPress = {() => saveEdit(item.id, title, platform, genres, notes, navigation)}/>
+            <Button title = "Save" onPress = {() => saveEdit(user, item.id, item.type, title, platform, genres, notes, navigation)}/>
           </ScrollView>
       </KeyboardAvoidingView>
     );
@@ -50,7 +50,7 @@ export default function ItemEditScreen({navigation, route}) {
   }
 }
 
-function saveEdit(id, title, platform, genres, notes, navigation) {
-  saveChange(id, title, platform, genres, notes);
+function saveEdit(uid, id, type, title, platform, genres, notes, navigation) {
+  saveChange(uid, id, type, title, platform, genres, notes);
   navigation.goBack();
 }
