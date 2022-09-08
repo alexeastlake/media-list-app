@@ -21,7 +21,11 @@ export default function App() {
   
   auth.onAuthStateChanged(() => {
     try {
-      setUser(auth.currentUser.uid);
+      if (auth.currentUser) {
+        setUser(auth.currentUser.uid);
+      } else {
+        setUser(false);
+      }
     } catch {}
   });
   

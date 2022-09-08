@@ -47,16 +47,6 @@ export async function getTypes(uid, type) {
   return items;
 }
 
-export function getCopiedItem(id) {
-  const db = getFirestore(getApp());
-
-  for (let i = 0; i < modelItems.length; i++) {
-    if (modelItems[i].id === id) {
-      return copyItem(modelItems[i]);
-    }
-  }
-}
-
 export async function getItem(uid, id) {
   const db = getFirestore(getApp());
 
@@ -94,10 +84,6 @@ export function addItem(uid, type, title, platform, genres, notes) {
   let item = new Item(type, title, platform, genresArray, notes);
 
   addDoc(collection(db, "users", uid, "items"), Object.assign({}, item)).catch(error => {Alert.alert("Error", error.message);});
-}
-
-function copyItem(item) {
-  return new Item(item.id, item.type, item.title, item.platform, [...item.genres], item.notes);
 }
 
 export function deleteItem(uid, id) {

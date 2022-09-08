@@ -27,8 +27,8 @@ export default function BottomTabs() {
       <Tab.Screen name = "Movies" component = {ListNavigator} initialParams = {{type: "movie"}} options = {{headerShown: false}}/>
       <Tab.Screen name = "TV" component = {ListNavigator} initialParams = {{type: "tv"}} options = {{headerShown: false}}/>
       <Tab.Screen name = "Games" component = {ListNavigator} initialParams = {{type: "game"}} options = {{headerShown: false}}/>
-      <Tab.Screen name = "Random" component = {RandomChooserScreen} options = {{headerTitle: ""}}/>
-      <Tab.Screen name = "Profile" component = {ProfileScreen} options = {{headerTitle: ""}}/>
+      <Tab.Screen name = "Random" component = {RandomChooserScreen}/>
+      <Tab.Screen name = "Profile" component = {ProfileScreen}/>
     </Tab.Navigator>
   );
 }
