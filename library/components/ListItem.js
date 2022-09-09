@@ -1,7 +1,8 @@
-import {View, Text, StyleSheet, TouchableOpacity} from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Text, TouchableOpacity, View } from "react-native";
 import styles from './styles.js';
 
+// List item component for FlatList of list items.
 export default function ListItem({item}) {
   let navigation = useNavigation();
   

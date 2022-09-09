@@ -1,10 +1,9 @@
-import {useDeferredValue, useState} from "react";
-import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button, Alert} from "react-native";
+import { useState } from "react";
+import { Alert, Button, KeyboardAvoidingView, ScrollView, Text, TextInput } from "react-native";
 import styles from '../../../library/components/styles';
-
 import { registerUser } from "../../utility/controller";
-import { login } from "./LoginScreen";
 
+// Registration screen for a new user to enter details.
 export default function RegistrationScreen({navigation}) {
   const [email, onChangeEmail] = useState("");
   const [password, onChangePassword] = useState("");
@@ -19,17 +18,18 @@ export default function RegistrationScreen({navigation}) {
           <TextInput style = {styles.textInput} onChangeText = {onChangePassword} secureTextEntry = {true}/>
           <Text style = {styles.textInputTitle}>Confirm Password:</Text>
           <TextInput style = {styles.textInput} onChangeText = {onChangeConfirmPassword} secureTextEntry = {true}/>
-          <Button title = "Register" onPress = {() => register(email, password, confirmPassword, navigation)}/>
+          <Button title = "Register" onPress = {() => register(email, password, confirmPassword)}/>
         </ScrollView>
     </KeyboardAvoidingView>
   );
 }
 
-function register(email, password, confirmPassword, navigation) {
+// Checks if the two given passwords match then registers the user.
+function register(email, password, confirmPassword) {
   if (password != confirmPassword) {
     Alert.alert("Invalid Password", "Passwords did not match");
     return;
   }
 
-  registerUser(email, password, confirmPassword);
+  registerUser(email, password);
 }

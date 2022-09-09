@@ -1,10 +1,10 @@
-import { useFocusEffect } from "@react-navigation/native";
 import React, { useContext, useState } from "react";
 import { Button, ScrollView, Text, View } from "react-native";
 import styles from "../../../library/components/styles";
-import { getItem, getRandomItem } from "../../utility/controller";
+import { getRandomItem } from "../../utility/controller";
 import { UserContext } from "../../utility/UserContext";
 
+// Screen for letting a user press a button to randomly select an item and showing details of that item.
 export default function RandomChooserScreen() {
   let user = useContext(UserContext);
 

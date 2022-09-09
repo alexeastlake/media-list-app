@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 
+// Styles for use throughout the app.
 export default StyleSheet.create({
   listItem: {
     flex: 1,

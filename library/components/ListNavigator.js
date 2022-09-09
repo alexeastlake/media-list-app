@@ -1,13 +1,14 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ListScreen from '../../src/screens/main/ListScreen';
-import ItemDetailScreen from '../../src/screens/main/ItemDetailScreen';
 import ItemAddScreen from '../../src/screens/main/ItemAddScreen';
+import ItemDetailScreen from '../../src/screens/main/ItemDetailScreen';
 import ItemEditScreen from '../../src/screens/main/ItemEditScreen';
-import ListHeaderButtons from './ListHeaderButtons';
+import ListScreen from '../../src/screens/main/ListScreen';
 import ItemHeaderButtons from './ItemHeaderButtons';
+import ListHeaderButtons from './ListHeaderButtons';
 
 const Stack = createNativeStackNavigator();
 
+// Stack navigator component for navigating between screens in the list areas of the app.
 export default function ListNavigator({route}) {
   return (
     <Stack.Navigator initialRouteName = "List" screenOptions = {{}}>

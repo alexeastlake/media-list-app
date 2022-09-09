@@ -1,11 +1,11 @@
-import {getApp} from "firebase/app";
-import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import {getFirestore, doc, setDoc, collection, firestore, addDoc, query, where, getDocs, getDoc, updateDoc, deleteDoc} from "firebase/firestore";
-import {Alert} from "react-native";
-import {modelItems, currentId} from "../../tempmodel";
+import { getApp } from "firebase/app";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, query, setDoc, updateDoc, where } from "firebase/firestore";
+import { Alert } from "react-native";
 import { ListItem as Item } from "./Item";
 
-export function registerUser(email, password, confirmPassword) {
+// Takes a potential users email and password and tries to register them with Firebase authentication.
+export function registerUser(email, password) {
   const auth = getAuth(getApp());
   const db = getFirestore(getApp());
 
@@ -20,6 +20,7 @@ export function registerUser(email, password, confirmPassword) {
     });
 }
 
+// Takes an email and password and attempts to login using Firebase authentication.
 export function loginUser(email, password) {
   const auth = getAuth(getApp());
 
@@ -34,6 +35,7 @@ export function loginUser(email, password) {
   });
 }
 
+// Gets all list items of a certain type for a given user from Firestore.
 export async function getTypes(uid, type) {
   const db = getFirestore(getApp());
 
@@ -47,6 +49,7 @@ export async function getTypes(uid, type) {
   return items;
 }
 
+// Gets an item by its document id under a users collection from Firestore.
 export async function getItem(uid, id) {
   const db = getFirestore(getApp());
 
@@ -58,6 +61,7 @@ export async function getItem(uid, id) {
   return item;
 }
 
+// Updates a document identified by its id under a users collection with the given values in Firestore.
 export function saveChange(uid, id, type, title, platform, genres, notes) {
   const db = getFirestore(getApp());
 
@@ -72,6 +76,7 @@ export function saveChange(uid, id, type, title, platform, genres, notes) {
   updateDoc(doc(db, "users", uid, "items", id), Object.assign({}, item)).catch(error => {Alert.alert("Error", error.message);});
 }
 
+// Adds a new document to the given users items collection with the given values in Firestore.
 export function addItem(uid, type, title, platform, genres, notes) {
   const db = getFirestore(getApp());
 
@@ -86,12 +91,14 @@ export function addItem(uid, type, title, platform, genres, notes) {
   addDoc(collection(db, "users", uid, "items"), Object.assign({}, item)).catch(error => {Alert.alert("Error", error.message);});
 }
 
+// Deletes the document with the given id under a users items collection in Firestore.
 export function deleteItem(uid, id) {
   const db = getFirestore(getApp());
 
   deleteDoc(doc(db, "users", uid, "items", id)).catch(error => {Alert.alert("Error", error.message);});
 }
 
+// Gets a random item from a given users items collection in Firestore.
 export async function getRandomItem(uid) {
   const db = getFirestore(getApp());
 

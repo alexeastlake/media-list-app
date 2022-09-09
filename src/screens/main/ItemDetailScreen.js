@@ -1,10 +1,11 @@
-import {ScrollView, Text, View} from "react-native";
-import React, {useContext, useState} from 'react';
-import {useFocusEffect} from '@react-navigation/native';
-import  {getItem, getCopiedItem} from "../../utility/controller";
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useContext, useState } from 'react';
+import { ScrollView, Text, View } from "react-native";
 import styles from '../../../library/components/styles';
+import { getItem } from "../../utility/controller";
 import { UserContext } from "../../utility/UserContext";
 
+// Screen for viewing the details of an item selected from a list.
 export default function ItemDetailScreen({route}) {
   let user = useContext(UserContext);
 

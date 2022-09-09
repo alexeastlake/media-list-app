@@ -1,10 +1,10 @@
-import { useNavigation, useRoute } from "@react-navigation/native";
-import React, {useContext} from "react";
-import  {addItem} from "../../utility/controller";
-import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button} from "react-native";
-import {UserContext} from "../../utility/UserContext";
+import React, { useContext } from "react";
+import { Button, KeyboardAvoidingView, ScrollView, Text, TextInput } from "react-native";
 import styles from '../../../library/components/styles';
+import { addItem } from "../../utility/controller";
+import { UserContext } from "../../utility/UserContext";
 
+// Screen for entering details of a new item and adding it to a list.
 export default function ItemAddScreen({navigation, route}) {
   let user = useContext(UserContext);
   let type = route.params.type;
@@ -31,6 +31,7 @@ export default function ItemAddScreen({navigation, route}) {
   );
 }
 
+// Saves the new item then goes back a page.
 function saveItem(uid, type, title, platform, genres, notes, navigation) {
   addItem(uid, type, title, platform, genres, notes);
   navigation.goBack();

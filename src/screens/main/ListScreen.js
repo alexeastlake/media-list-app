@@ -1,11 +1,12 @@
-import {View, FlatList, Text} from "react-native";
-import React, {useContext, useState} from 'react';
-import {useFocusEffect} from '@react-navigation/native';
-import  {getTypes} from "../../utility/controller";
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useContext, useState } from 'react';
+import { FlatList, Text, View } from "react-native";
 import ListItem from "../../../library/components/ListItem";
-import { UserContext } from "../../utility/UserContext";
 import styles from "../../../library/components/styles";
+import { getTypes } from "../../utility/controller";
+import { UserContext } from "../../utility/UserContext";
 
+// Screen for showing a list of items of a given type.
 export default function ListScreen({route}) {
   let user = useContext(UserContext);
 
@@ -34,6 +35,7 @@ export default function ListScreen({route}) {
   }
 }
 
+// Render item method for the FlatList.
 function renderItem({item}) {
   return (
     <View>

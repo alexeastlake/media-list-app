@@ -1,10 +1,11 @@
+import { useFocusEffect } from "@react-navigation/native";
 import React, { useContext, useState } from "react";
-import {useRoute, useNavigation, useFocusEffect} from "@react-navigation/native";
-import  {getItem, saveChange} from "../../utility/controller";
-import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button} from "react-native";
+import { Button, KeyboardAvoidingView, ScrollView, Text, TextInput } from "react-native";
 import styles from '../../../library/components/styles';
+import { getItem, saveChange } from "../../utility/controller";
 import { UserContext } from "../../utility/UserContext";
 
+// Screen for editing an items details after selecting it from a list.
 export default function ItemEditScreen({navigation, route}) {
   let user = useContext(UserContext);
 
@@ -50,6 +51,8 @@ export default function ItemEditScreen({navigation, route}) {
   }
 }
 
+
+// Saves the changes to the item then goes back a page.
 function saveEdit(uid, id, type, title, platform, genres, notes, navigation) {
   saveChange(uid, id, type, title, platform, genres, notes);
   navigation.goBack();

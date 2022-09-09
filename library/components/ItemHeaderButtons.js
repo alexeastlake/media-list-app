@@ -1,16 +1,16 @@
-import {Alert, TouchableOpacity, View} from "react-native";
-import {MaterialCommunityIcons} from '@expo/vector-icons';
-import  {deleteItem} from "../../src/utility/controller";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from "@react-navigation/native";
-import styles from './styles.js';
 import { useContext } from "react";
+import { Alert, TouchableOpacity, View } from "react-native";
+import { deleteItem } from "../../src/utility/controller";
 import { UserContext } from "../../src/utility/UserContext";
+import styles from './styles.js';
 
-export default function ListHeaderButtons() {
+// Header component with buttons for editing and deleting a list item. 
+export default function ItemHeaderButtons() {
   let navigation = useNavigation();
   let route = useRoute();
   let user = useContext(UserContext);
-
 
   return (
     <View style = {styles.headerButtonWrapper}>
@@ -24,6 +24,7 @@ export default function ListHeaderButtons() {
   );
 }
 
+// Shows an alert for the user to confirm or cancel deleting of an item.
 function deleteAlert(uid, navigation, params) {
   Alert.alert(
     "Delete",

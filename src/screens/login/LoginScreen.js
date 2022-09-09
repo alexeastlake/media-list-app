@@ -1,9 +1,9 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
-import {useState} from "react";
-import {Text, View, TextInput, KeyboardAvoidingView, ScrollView, Button, Alert} from "react-native";
-import { loginUser } from "../../utility/controller";
+import { useState } from "react";
+import { Button, KeyboardAvoidingView, ScrollView, Text, TextInput } from "react-native";
 import styles from '../../../library/components/styles';
+import { loginUser } from "../../utility/controller";
 
+// Login Screen for first entry into the app.
 export default function LoginScreen({navigation}) {
   const [email, onChangeEmail] = useState("");
   const [password, onChangePassword] = useState("");
@@ -15,13 +15,9 @@ export default function LoginScreen({navigation}) {
           <TextInput style = {styles.textInput} onChangeText = {onChangeEmail}/>
           <Text style = {styles.textInputTitle}>Password:</Text>
           <TextInput style = {styles.textInput} onChangeText = {onChangePassword} secureTextEntry = {true}/>
-          <Button title = "Login" onPress = {() => login(email, password, navigation)}/>
+          <Button title = "Login" onPress = {() => loginUser(email, password)}/>
           <Text style = {styles.registerLink} onPress = {() => navigation.navigate("Register")}>Register</Text>
         </ScrollView>
     </KeyboardAvoidingView>
   );
-}
-
-export function login(email, password, navigation) {
-  loginUser(email, password);
 }

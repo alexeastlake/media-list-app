@@ -1,3 +1,4 @@
+// Class for representing list items across the app.
 export class ListItem {
   constructor(type, title, platform, genres, notes) {
     this.type = type;

@@ -1,14 +1,16 @@
-import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {MaterialCommunityIcons} from '@expo/vector-icons';
-import RandomChooserScreen from "../../src/screens/main/RandomChooserScreen"
-import ProfileScreen from "../../src/screens/main/ProfileScreen"
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import ProfileScreen from "../../src/screens/main/ProfileScreen";
+import RandomChooserScreen from "../../src/screens/main/RandomChooserScreen";
 import ListNavigator from "./ListNavigator";
 
 const Tab = createBottomTabNavigator();
 
+// Bottom tab navigator component for tabs throughout the app.
 export default function BottomTabs() {
   return (
     <Tab.Navigator initialRouteName = {"Profile"} screenOptions = {({route}) => ({
+      // Setting all tab icons.
       tabBarIcon: ({focused, color, size}) => {
         switch (route.name) {
           case "Movies":
