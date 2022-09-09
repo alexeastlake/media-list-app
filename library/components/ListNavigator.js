@@ -2,7 +2,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ListScreen from '../../src/screens/main/ListScreen';
 import ItemDetailScreen from '../../src/screens/main/ItemDetailScreen';
 import ItemAddScreen from '../../src/screens/main/ItemAddScreen';
-import ItemFilterScreen from '../../src/screens/main/ItemFilterScreen';
 import ItemEditScreen from '../../src/screens/main/ItemEditScreen';
 import ListHeaderButtons from './ListHeaderButtons';
 import ItemHeaderButtons from './ItemHeaderButtons';
@@ -17,7 +16,6 @@ export default function ListNavigator({route}) {
         headerRight: ListHeaderButtons,
       }}/>
       <Stack.Screen name = "Add" component = {ItemAddScreen} initialParams = {route.params}/>
-      <Stack.Screen name = "Filter" component = {ItemFilterScreen}/>
       <Stack.Screen name = "Details" component = {ItemDetailScreen} options = {{
         headerRight: ItemHeaderButtons,
       }}/>

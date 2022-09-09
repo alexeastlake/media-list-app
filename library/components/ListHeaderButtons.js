@@ -8,9 +8,6 @@ export default function ListHeaderButtons() {
 
   return (
     <View style = {styles.headerButtonWrapper}>
-      <TouchableOpacity onPress = {() => navigation.navigate("Filter")}>
-        <MaterialCommunityIcons style = {styles.headerButton} name = "filter-variant" color = "black"/>
-      </TouchableOpacity>
       <TouchableOpacity onPress = {() => navigation.navigate("Add")}>
         <MaterialCommunityIcons style = {styles.headerButton} name = "plus" color = "black" />
       </TouchableOpacity>
