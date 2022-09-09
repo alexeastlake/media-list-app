@@ -10,16 +10,7 @@ export default function RandomChooserScreen() {
 
   const [item, setItem] = useState();
 
-  useFocusEffect(
-    React.useCallback(() => {
-      if (item) {
-        getItem(user, item.id).then((response) => setItem(response));
-      }
-    }, [])
-  );
-
   if (item) {
-    console.log(item);
     return (
       <View style = {styles.screenContentWrapper}>
         <ScrollView>
@@ -27,7 +18,7 @@ export default function RandomChooserScreen() {
           <Text style = {styles.screenContentText}>{item.platform}</Text>
           <Text style = {styles.screenContentText}>{item.genres.join(", ")}</Text>
           <Text style = {[styles.screenContentText, styles.itemDetailNotes]}>{item.notes}</Text>
-          <Button style = {styles.randomButton} title = "Random Item" onPress = {() => getRandomItem(user).then((response) => setItem(response))}/>
+          <Button style = {styles.randomButton} title = "Random Item" onPress = {() => getRandomItem(user).then((response) => {setItem(response);})}/>
         </ScrollView>
       </View>
     );
@@ -35,7 +26,7 @@ export default function RandomChooserScreen() {
     return (
       <View style = {styles.screenContentWrapper}>
         <Text style = {styles.screenContentTitle}>Feeling lucky?</Text>
-        <Button style = {styles.randomButton} title = "Random Item" onPress = {() => getRandomItem(user).then((response) => setItem(response))}/>
+        <Button style = {styles.randomButton} title = "Random Item" onPress = {() => getRandomItem(user).then((response) => {setItem(response);})}/>
       </View>
     );
   }
