@@ -11,6 +11,7 @@ export default function ItemDetailScreen({route}) {
 
   const [item, setItem] = useState();
   
+  // When the screen is focused update the items fields incase they're updated.
   useFocusEffect(
     React.useCallback(() => {
       getItem(user, route.params.item.id).then((result) => {setItem(result)});

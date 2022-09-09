@@ -21,6 +21,7 @@ const auth = initializeAuth(app, {persistence: getReactNativePersistence(AsyncSt
 export default function App() {
   const [user, setUser] = useState(false);
   
+  // If the authentication state changes, assign the user state appropriately.
   auth.onAuthStateChanged(() => {
     try {
       if (auth.currentUser) {
@@ -31,6 +32,7 @@ export default function App() {
     } catch {}
   });
   
+  // If a user is logged in then show the app, otherwise show the login/register screens. Uses user as context so its accessible anywhere.
   return (
     <UserContext.Provider value = {user}>
       <NavigationContainer>

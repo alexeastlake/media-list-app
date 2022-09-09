@@ -10,6 +10,7 @@ export default function RandomChooserScreen() {
 
   const [item, setItem] = useState();
 
+  // If there is a item currently selected then show that item, otherwise show a beginning random button screen.
   if (item) {
     return (
       <View style = {styles.screenContentWrapper}>

@@ -12,6 +12,7 @@ export default function ListScreen({route}) {
 
   const [items, setItems] = useState();
 
+  // If the list screen is refocused, reload the items for updates.
   useFocusEffect(
     React.useCallback(() => {
       getTypes(user, route.params.type).then((result) => {setItems(result)});

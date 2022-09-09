@@ -9,8 +9,9 @@ import { UserContext } from "../../utility/UserContext";
 export default function ItemEditScreen({navigation, route}) {
   let user = useContext(UserContext);
 
-  const [item, setItem] = useState();
+  const [item, setItem] = useState()
 
+  // When the screen is focused load the item into the text fields.
   useFocusEffect(
     React.useCallback(() => {
       getItem(user, route.params.item.id).then((result) => {
